@@ -8,7 +8,7 @@ export const Appearances = styled.div`
     color: white;
     display: flex;
     justify-content: space-evenly;
-    border-radius: 5%;
+    border-radius: 10px;
 `
 
 export const AppearInfo = styled.p`
@@ -22,7 +22,7 @@ export const Bio = styled.div`
     grid-row: 2 / 5;
     background-color: #000000cf;
     color: white;
-    border-radius: 5%;
+    border-radius: 10px;
     overflow: auto;
     &::-webkit-scrollbar {
         border: 1px solid black;
@@ -30,7 +30,7 @@ export const Bio = styled.div`
     }
     &::-webkit-scrollbar-thumb {
         background-color: #000;
-        border-radius: 5%;
+        border-radius: 10px;
     }
 `
 
@@ -45,7 +45,7 @@ export const Button = styled.button`
     height: 50px;
     font-size: 24px;
     border: 1px solid black;
-    border-radius: 5%;
+    border-radius: 10px;
     background-color: #bebebe;
     &:hover {
         background-color: black;
@@ -60,7 +60,7 @@ export const Connect = styled.div`
     height: 100%;
     background-color: #000000cf;
     overflow: hidden;
-    border-radius: 5%;
+    border-radius: 10px;
    
 `
 
@@ -129,7 +129,7 @@ export const Group = styled.div`
     }
     &::-webkit-scrollbar-thumb {
         background-color: #fff;
-        border-radius: 5%;
+        border-radius: 10px;
     }
 `
 
@@ -175,7 +175,7 @@ export const List = styled.ul`
     }
     &::-webkit-scrollbar-thumb {
         background-color: #000;
-        border-radius: 30%;
+        border-radius: 10px;
     }
 `
 
@@ -205,7 +205,7 @@ export const Name = styled.h1`
     background-color: #000000cf;
     padding: 0;
     margin: 0;
-    border-radius: 5%;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -225,7 +225,7 @@ export const PageButton1 = styled.button`
     box-shadow: 0 5px;
     opacity: 0;
     font-size: 32px;
-    border-radius: 25%;
+    border-radius: 15px;
 
     &:active {
         transform: translateY(3px)
@@ -257,7 +257,7 @@ export const Rankings = styled(Link)`
     margin: 1%;
     border: 1px solid black;
     text-decoration: none;
-    border-radius: 5%;
+    border-radius: 10px;
 
     &:visited {
         color: black;
@@ -290,7 +290,7 @@ export const Relatives = styled.div`
     }
     &::-webkit-scrollbar-thumb {
         background-color: #fff;
-        border-radius: 5%;
+        border-radius: 10px;
     }
 `
 
@@ -331,7 +331,7 @@ export const Return = styled.div`
     text-align: center;
     font-size: 28px;
     margin: auto;
-    border-radius: 5%;
+    border-radius: 10px;
     height: 100%;
     width: 100%;
 
@@ -378,7 +378,7 @@ export const Stat = styled.div`
     grid-column: 3;
     grid-row: 3 / 7 ;
     padding: 2%;
-    border-radius: 5%;
+    border-radius: 10px;
 `
 
 export const Tab1 = styled.button`
@@ -403,7 +403,7 @@ export const Table = styled.table`
 export const Thumb = styled.img`
     width: 100%;
     height: 100%;
-    border-radius: 5%;
+    border-radius: 10px;
 `
 
 export const Title = styled.h1`
@@ -419,7 +419,7 @@ export const Works = styled.div`
     grid-row: 6;
     background-color: #000000cf;
     color: white;
-    border-radius: 5%;
+    border-radius: 10px;
 `
 
 export const WorkInfo = styled.p`
