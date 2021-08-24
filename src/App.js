@@ -13,8 +13,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/:id" component={(props) => <Hero {...props} />} />
         <Route component={NotFound} />
-      </Switch>
-     
+      </Switch>  
     </Router>
   );
 }

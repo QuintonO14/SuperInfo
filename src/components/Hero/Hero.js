@@ -5,8 +5,7 @@ import Connections from './HeroFeats/Connections';
 import Appearance from './HeroFeats/Appearance';
 import Image from './HeroFeats/Image';
 import Stats from './HeroFeats/Stats';
-import Work from './HeroFeats/Work';
-import { Grid, Return, Name, ReturnLink, Loader } from '../../styles/styles';
+import { Link } from 'react-router-dom';
 
 const Hero = (props) => {
     const [hero, setSupe] = useState({});
@@ -22,16 +21,22 @@ const Hero = (props) => {
     }, [props.match.params.id, props.history])
 
     return (
-        <>
+        <div className="h-full">
               {Object.keys(hero).length > 0 ?  (
-              <Grid>
-                 <Return> 
-                 <ReturnLink style={hero.biography.alignment === 'good' ? {"color": "blue"} : {"color":"red"}} to="/">Return To Search</ReturnLink>
-                 </Return>
-                 <Name style={hero.biography.alignment === 'good' ? {"color": "blue"} : {"color":"red"}}>
-                     {hero.name}
-                </Name>
-                <Image appearance={hero.appearance} name={hero.name} url={hero.images.md} />
+              <div className="flex flex-col divide-y divide-black bg-gray-300 h-full">
+                 <Link 
+                 className="w-full"
+                 style={hero.biography.alignment === 'good' ? {color: "blue"} : {color:"red"}} to="/">
+                     <button className="w-full xl:w-1/4 p-2 text-center bg-white active:bg-gray-100 hover:bg-gray-100 xl:absolute xl:border border-black
+                 xl:m-8 xl:p-4 xl:rounded-md">Return to Search</button>
+                 </Link>
+                <Image 
+                hero={hero} 
+                url={hero.images.md}
+                occupation={hero.work.occupation}
+                base={hero.work.base}
+                alliance={hero.biography.alignment}
+                 />
                 <Biography
                     alias={hero.biography.aliases}
                     alliance={hero.biography.alignment}
@@ -56,11 +61,6 @@ const Hero = (props) => {
                     name={hero.name}
                     alliance={hero.biography.alignment}
                 />
-                <Work
-                    occupation={hero.work.occupation}
-                    base={hero.work.base}    
-                    alliance={hero.biography.alignment}
-                />
                  <Stats
                     name={hero.name}
                     align={hero.biography.alignment}
@@ -71,9 +71,9 @@ const Hero = (props) => {
                     intelligence={hero.powerstats.intelligence}
                     durability={hero.powerstats.durability}
                 />
-                 </Grid>
-              ) : <Loader /> }
-            </>
+                 </div>
+              ) : null }
+            </div>
         )
 }
 

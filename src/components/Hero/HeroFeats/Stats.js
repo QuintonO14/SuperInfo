@@ -1,6 +1,4 @@
-import { Stat } from '../../../styles/styles'
 import { Radar } from 'react-chartjs-2';
-
 
 const Stats = ({ combat, power, speed, strength, intelligence, durability, name, align}) => {
     const total = combat + power + speed + strength + intelligence + durability 
@@ -72,9 +70,9 @@ const Stats = ({ combat, power, speed, strength, intelligence, durability, name,
         maintainAspectRatio: false
       };
     return (
-        <Stat>
+        <div className="h-screen w-11/12 mx-auto">
             <Radar data={data} options={options} />
-        </Stat> 
+        </div> 
     )
 }
 

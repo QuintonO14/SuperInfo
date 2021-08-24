@@ -1,15 +1,20 @@
-import { Appearances, AppearInfo } from '../../../styles/styles';
 const Appearance = ({height, weight, gender, race, eyecolor, haircolor, alliance}) => {
    
     return (
-        <Appearances style={alliance === "good" | "neutral" ? {"color" : "blue"} : {"color" :"red"}}>
-         <AppearInfo>Height:<br />{height.includes("-") ? 'N/A' : height.join('\n')}</AppearInfo>
-         <AppearInfo>Weight:<br />{weight.includes("-") ? 'N/A' : weight.join('\n')}</AppearInfo>
-         <AppearInfo>Gender:<br />{gender.includes("-") ? 'N/A' : gender }</AppearInfo>
-         <AppearInfo>Race:<br />{race ? race : 'Unknown'}</AppearInfo>
-         <AppearInfo>Eye-Color:<br />{eyecolor ? eyecolor : 'N/A'}</AppearInfo>
-         <AppearInfo>Hair-Color:<br />{haircolor ? haircolor: 'N/A'}</AppearInfo>
-        </Appearances>
+        <div 
+        className="flex justify-evenly w-11/12 mx-auto"
+        style={alliance === "good" | "neutral" ? {color: "blue"} : {color:"red"}}>
+         <div>
+         <p>Height:<br />{height.includes("-") ? 'N/A' : height.join('\n')}</p>
+         <p>Weight:<br />{weight.includes("-") ? 'N/A' : weight.join('\n')}</p>
+         <p>Gender:<br />{gender.includes("-") ? 'N/A' : gender }</p>
+         </div>
+         <div>
+         <p>Race:<br />{race ? race : 'Unknown'}</p>
+         <p>Eye-Color:<br />{eyecolor ? eyecolor : 'N/A'}</p>
+         <p>Hair-Color:<br />{haircolor ? haircolor: 'N/A'}</p>
+         </div>
+        </div>
     )
 }
 

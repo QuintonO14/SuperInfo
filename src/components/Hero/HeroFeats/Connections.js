@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Connect, Items, Relatives, RelP, Group, Tab1, Tab2 } from '../../../styles/styles'
 
 const Connections = ({ group, relatives, name, alliance }) => {
     const relativesArray = relatives.split(/[,;]/);
@@ -23,41 +22,44 @@ const Connections = ({ group, relatives, name, alliance }) => {
         "backgroundColor" : color,
         "border" : `1px solid ${color}`
     }
-
-    const border = {
-        "border": '1px solid white'
-    }
-
+    
     return (
-        <Connect>
-            <Tab1 style={active === false ? activeClass : border} onClick={getRelatives}>Relatives</Tab1>
-            <Tab2 style={active === true ? activeClass : border} onClick={getGroup}>Groups</Tab2>
+        <div className="w-11/12 mx-auto">
+            <div className="flex justify-evenly mt-4 ">
+            <button
+            className="border border-black p-2 bg-white hover:bg-gray-400 active:bg-gray-400" 
+            style={active === false ? activeClass : null} onClick={getRelatives}>Relatives</button>
+            <button 
+            className="border border-black p-2 bg-white hover:bg-gray-400 active:bg-gray-400"
+            style={active === true ? activeClass : null} onClick={getGroup}>Groups</button>
+            </div>
             {tab === true ? (  
-                <Group style={alliance === "good" ? {"color" : "blue", "border" : "2px solid blue"} :
-                {"color" : "red", "border" : "2px solid red"}}>
+                <div
+                className="p-2 text-center"
+                style={alliance === "good" ? {color:"blue", border:"2px solid blue"} : {color: "red", border:"2px solid red"}}>
                 {groupArray.length > 2 ? (
                     groupArray.map((group) => {
-                        return <Items key={Math.floor(Math.random() * 1000) + 1}>{group}</Items>
+                        return <p key={Math.floor(Math.random() * 100000) + 1}>{group}</p>
                     })) : (
-                        <RelP>There's not much info on the groups {name} is associated with. This could be due to the information not residing within the API. A quick google search may be able to reveal more!</RelP>
+                        <p>There's not much info on the groups {name} is associated with. This could be due to the
+                         information not residing within the API. A quick google search may be able to reveal more!</p>
                     ) }
-                    <br />
-                    <br />
-                </Group>) : (
-                <Relatives style={alliance === "good" ? {"color" : "blue", "border" : "2px solid blue"} :
-                {"color" : "red", "border" : "2px solid red"}}>
+                </div>
+                ) : (
+                <div 
+                className="p-2 text-center"
+                style={alliance === "good" ? {color: "blue", border:"2px solid blue"} : {color: "red", border:"2px solid red"}}>
                     {relativesArray.length > 3 ? ( 
                             relativesArray.map((relative) => {
-                                return <Items key={Math.floor(Math.random() * 10000) + 1}>{relative}</Items>
+                                return <p key={Math.floor(Math.random() * 10000) + 1}>{relative}</p>
                             })
                     ) : (
-                        <RelP>There's not much info on {name + "'s"} relatives. This could be due to the information not residing within the API. A quick google search may be able to reveal more!</RelP>
+                        <p>There's not much info on {name + "'s"} relatives. This could be due to the information
+                         not residing within the API. A quick google search may be able to reveal more!</p>
                     )}
-                    <br />
-                    <br />
-                </Relatives>
+                </div>
                 )}
-        </Connect>
+        </div>
     )
 }
 

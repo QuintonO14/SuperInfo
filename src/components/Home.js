@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import hero from '../api/api';
-import Search from './Search';
-import { Container, HLink, Img, List, Rankings, Result, Title} from '../styles/styles';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   useEffect(() => {
@@ -19,42 +18,51 @@ const Home = () => {
   }
 
   const heroSearch = async (e) => {
-    const term = e.target.value.toLowerCase().split(/[^A-Za-z]/);
+    const term = e.target.value.toLowerCase().split(/^A-Za-z/)
       const filtered = data.filter((item) => {
         return item.name.toLowerCase().match(term);
       })
-      setFiltered(filtered);
-      setShow(true);
-    if(!term) {
-     getData();
-     setShow(false);
-    }
+      if(!e.target.value) {
+        setShow(false);
+        getData();
+       } else {
+        setFiltered(filtered);
+        setShow(true);
+       }
   }
 
   return (
-  <Container>
-    <div>
-    <Title>SuperInfo</Title>
-  <Search hero={heroSearch} />
+  <div className="flex sm:h-screen text-center w-full lg:w-2/3 xl:w-1/2 mx-auto items-center">
+   <div className="flex flex-col w-full border border-black rounded-lg overflow-y-auto justify-center">
+    <h1 className="text-xl mt-2">SuperInfo</h1>
+    <input  
+        className="w-11/12 mx-auto my-2 shadow-md relative border border-black p-2 rounded-md"
+        type="text" 
+        placeholder="Look up a superhero or villain!" 
+        onChange={heroSearch}/>
           {show ? (
-              <List>
-              {filtered.map((hero) => {
-                return (
-                  <HLink key={hero.id} to={`/${hero.id}`}>
-                   <Result>
-                     {hero.name}<Img src={hero.images.xs} alt="No Hero Pic"/>
-                  </Result>
-                  </HLink>
-                )
-              })}
-              {filtered.length < 1 ? <Result>No Super Found</Result> : null}
-              </List>
-          ) :  null
-          }
-      <p style={{"padding":"1%", "font-weight":"bold"}}>OR</p>
-    <Rankings to="/rankings">Go To Rankings</Rankings>     
+              <ul className="text-center h-auto sm:h-40 border-t-2 border-b-2 border-black overflow-y-auto
+              scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-black scrollbar-thumb-rounded scrollbar-track-rounded">
+              {filtered.length < 1 ? <li>No Super Found</li> : (
+                filtered.map((hero) => {
+                  return (
+                    <Link key={hero.id} to={`/${hero.id}`}>
+                      <li className="group flex justify-between p-px items-center hover:bg-gray-200">
+                        <img src={hero.images.xs} alt="No Hero Pic" />
+                        <p>{hero.name}</p>
+                        <p className="opacity-0 group-hover:opacity-100">➔</p>
+                      </li>
+                    </Link>
+                  )
+                })
+              )}
+              </ul>
+          ) :  null }
+    <Link to="/rankings" className="p-2">
+      <button className="w-full lg:w-2/3 xl:w-1/4 rounded-md border border-black p-2 hover:bg-gray-200">Go to Rankings</button>
+    </Link>     
     </div>
-  </Container>
+  </div>
   );
 }
 
