@@ -27,10 +27,10 @@ const Connections = ({ group, relatives, name, alliance }) => {
         <div className="w-11/12 mx-auto">
             <div className="flex justify-evenly mt-4 ">
             <button
-            className="border border-black p-2 bg-white hover:bg-gray-400 active:bg-gray-400" 
+            className="border border-black p-2 bg-white text-lg hover:bg-gray-400 active:bg-gray-400" 
             style={active === false ? activeClass : null} onClick={getRelatives}>Relatives</button>
             <button 
-            className="border border-black p-2 bg-white hover:bg-gray-400 active:bg-gray-400"
+            className="border border-black p-2 bg-white text-lg hover:bg-gray-400 active:bg-gray-400"
             style={active === true ? activeClass : null} onClick={getGroup}>Groups</button>
             </div>
             {tab === true ? (  

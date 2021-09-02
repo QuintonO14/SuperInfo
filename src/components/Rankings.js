@@ -17,16 +17,15 @@ const Rankings = () => {
     }
 
     return (
-        <div className="flex h-screen justify-center items-center">
+        <div className="flex h-screen bg-gray-500">
             <Carousel 
-            autoPlay
             autoFocus
             showIndicators={false} 
             thumbWidth={90}
             useKeyboardArrows={true}
             showArrows={false}
             showStatus={false}
-            className="w-full h-full flex flex-col justify-center xl:w-1/2 mx-auto border border-black rounded-md bg-gray-500">
+            className="w-full md:w-3/4 h-auto flex flex-col justify-evenly mx-auto mt-2 bg-gray-500">
                 {data.sort((a,b) => [b.powerstats.combat + b.powerstats.strength + b.powerstats.power + 
                 b.powerstats.durability + b.powerstats.intelligence + b.powerstats.speed] - [a.powerstats.combat
                 + a.powerstats.strength + a.powerstats.power + a.powerstats.durability + a.powerstats.intelligence +
@@ -36,9 +35,9 @@ const Rankings = () => {
                       + hero.powerstats.intelligence + hero.powerstats.durability;
                     return (
                     
-                         <div key={hero.id} className="w-1/2 mx-auto pt-8">
-                            <img className="rounded-md h-40" src={hero.images.lg} alt="hero" />
-                            <Link to={`/${hero.id}`}><p className="underline hover:text-white active:text-white">{hero.name}</p></Link>
+                         <div key={hero.id} className="w-2/3 sm:w-1/3 mx-auto">
+                            <img className="rounded-md h-full" src={hero.images.lg} alt="hero" />
+                            <Link to={`/${hero.id}`}><h1 className="text-xl font-bold underline hover:text-white active:text-white">{hero.name}</h1></Link>
                             <p>Total Level:{total}</p>
                         </div>
                     )
